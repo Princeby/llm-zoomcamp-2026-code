@@ -23,7 +23,7 @@ class RAGBase:
         instructions=INSTRUCTIONS,
         prompt_template=PROMPT_TEMPLATE,
         course="llm-zoomcamp",
-        model="gpt-5.4-mini"
+        model="qwen/qwen3.8-27b"
     ):
         self.index = index
         self.llm_client = llm_client
@@ -62,7 +62,7 @@ class RAGBase:
 
     def llm(self, prompt):
         input_messages = [
-            {"role": "developer", "content": self.instructions},
+            {"role": "system", "content": self.instructions},
             {"role": "user", "content": prompt}
         ]
 
